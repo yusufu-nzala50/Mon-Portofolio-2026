@@ -569,5 +569,280 @@ main h1 {
     }
 }
 
+/* --- Mise en page Pro --- */
+
+/* Conteneur principal */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Introduction de page */
+.section-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-intro h1 {
+    font-size: 2.8rem;
+    color: var(--Violet-fonce);
+    margin-bottom: 10px;
+}
+
+.section-intro p {
+    color: var(--gris-fonce);
+    font-size: 1.1rem;
+}
+
+.divider {
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--Violet-doux);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+/* GRILLE PRO : 3 colonnes fixes sur PC */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+    gap: 35px; /* Espacement optimal entre les blocs */
+}
+
+/* Design des Cartes */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Aligne le contenu verticalement */
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(108, 99, 255, 0.12);
+}
+
+/* En-tête de carte (Image) */
+.card-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Recadre l'image sans déformation */
+    border-bottom: 5px solid var(--Violet-doux);
+}
+
+/* Corps de carte (Texte) */
+.card-body {
+    padding: 25px;
+    flex-grow: 1; /* Permet au texte de prendre l'espace restant */
+}
+
+.card-body h3 {
+    margin-bottom: 12px;
+    color: var(--Violet-fonce);
+    font-size: 1.4rem;
+}
+
+.card-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--gris-fonce);
+    margin-bottom: 20px;
+}
+
+/* Badges Tags */
+.badge-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge-group span {
+    background: #f0f0ff;
+    color: var(--Violet-doux);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Pied de carte (Liens) */
+.card-footer {
+    background: #fafafa;
+    padding: 15px 25px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-footer a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.card-footer a:hover {
+    color: var(--Violet-doux);
+}
+
+/* RESPONSIVE (PRO) */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+    
+    .section-intro h1 { font-size: 2rem; }
+}
 
 
+
+/* --- CONFIGURATION --- */
+:root {
+    --violet-main: #6c63ff;
+    --text-dark: #2d3436;
+}
+
+/* --- STYLE DES BALISES A (LIENS) --- */
+
+/* Reset du soulignement par défaut */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Soulignement stylisé pour les liens d'action */
+.link-underlined {
+    display: inline-block;
+    color: var(--violet-main);
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.link-underlined::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Toute la largeur du texte de la balise a */
+    height: 2px;
+    background-color: var(--violet-main);
+    transform: scaleX(0.7); /* Commence un peu plus court */
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.link-underlined:hover::after {
+    transform: scaleX(1); /* S'allonge au survol */
+}
+
+/* Soulignement pour le gros bouton Hero */
+.btn-main-underlined {
+    display: inline-block;
+    margin-top: 25px;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.btn-main-underlined::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--violet-main);
+    border-radius: 2px;
+}
+
+.btn-main-underlined:hover {
+    color: var(--violet-main);
+    transform: translateX(5px);
+}
+
+/* --- GRILLES ET CARTES --- */
+.bento-grid-3, .stats-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.bento-item {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.08);
+}
+
+.bento-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.bento-info {
+    padding: 25px;
+}
+
+.bento-info h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/* --- STATS --- */
+.stat-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(108, 99, 255, 0.08);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: #f0f0ff;
+    color: var(--violet-main);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-data { flex-grow: 1; }
+.stat-data .value { font-weight: 700; }
+.trend { font-weight: bold; }
+.trend.up { color: #2ecc71; }
+.trend.down { color: #e74c3c; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .bento-grid-3, .stats-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .bento-grid-3, .stats-grid-3 { grid-template-columns: 1fr; }
+}
